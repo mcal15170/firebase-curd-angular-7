@@ -1,0 +1,54 @@
+<div class="container pt-3">
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-10 col-md-6">
+      <div class="card border-info">
+        <div class="card-header titlediv text-center">
+          <h5>Sign Up</h5>
+          <p>it's free and only take minute</p>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <img class="loginLogo" src="../../../assets/img/logo.png">
+            </div>
+            <div class="col-md-12">
+              <div class="container">
+                <!-- name -->
+                <div class="input-container">
+                  <i class="fa fa-user icon"></i>
+                  <input type="text" class="input-field" placeholder="Name" #name required autofocus>
+                </div>
+
+                <!-- email id -->
+                <div class="input-container">
+                  <i class="fa fa-envelope-o icon"></i>
+                  <input type="text" class="input-field" placeholder="Email" #userEmail required autofocus>
+                </div>
+                <!-- password -->
+                <div class="input-container">
+                  <i class="fa fa-lock icon" id="passLock"></i>
+                  <i class="fa fa-unlock icon" id="passUnlock"></i>
+                  <input (keyup)="checkPass(userPassword.value,confirmPassword.value)" type="password" class="input-field" placeholder="Password" #userPassword required id="txtPass">
+                  <i class="fa fa-eye icon" (click)="showPassword()" id="passEye"></i>
+                  <i class="fa  fa-eye-slash icon" (click)="hidePassword()" id="passEyeClose"></i>
+                </div>
+                <!-- confirm password -->
+                <div class="input-container">
+                  <i class="fa fa-check icon" id="ok"></i>
+                  <i class="fa fa-times icon" id="wrong"></i>
+                  <i class="fa fa-question icon" id="what"></i>
+                  <input (keyup)="checkConfirmPass(userPassword.value,confirmPassword.value)" type="password"
+                    class="input-field" placeholder="Repeat Password" #confirmPassword required id="txtConfirmPass">
+                </div>
+
+                <button id="btn" class="btn btn-block mb-1"
+                  (click)="createUser(userEmail.value, userPassword.value,confirmPassword.value,name.value)">Sign
+                  Up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

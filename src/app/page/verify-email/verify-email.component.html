@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-header></app-header>
+    </div>
+    <div class="col-md-12">
+      <div class="container">
+        <div class="row mainDiv border">
+          <div class="col-md-12 titleDiv float-left">
+            <mat-card>
+              <div class="row">
+                <div class="col-md-11">
+                  <h5>Email Verification</h5>
+                </div>
+                <div class="col-md-1">
+                  <p>
+                    <i *ngIf="emailVerified" class="fa fa-envelope-open-o"></i>
+                    <i *ngIf="!emailVerified" class="fa fa-envelope-o"></i>
+                  </p>
+
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <!-- if email is not verifed -->
+          <div class="col-md-12 mainContent" *ngIf="!emailVerified">
+            <p>We have sent a verification mail to <b>{{mailId}}</b> . Please activate your account with the link in
+              this
+              mail. if you cannot find the mail,
+              please also check Junk/Spam Folder!</p>
+            <p>
+              If you have not recived a verification email or if you have mistyped you email address, you can resendthe
+              verication mail
+            </p>
+          </div>
+          <div class="col-md-6" *ngIf="!emailVerified">
+            <p><input class="form-control" type="email" value="{{mailId}}" readonly /></p>
+          </div>
+          <div class="col-md-6" *ngIf="!emailVerified">
+            <button id="btn" (click)="authService.SendVerificationMail()">Resend</button>
+          </div>
+          <!-- if email is verifired -->
+          <div class="col-md-12 mainContent" *ngIf="emailVerified">
+            <p>You Emial Id : <b>{{mailId}} </b>is alredy Verifyed.</p><br />
+            <button id="btn" (click)="goBack()">Go Back</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

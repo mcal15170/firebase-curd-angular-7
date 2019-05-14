@@ -1,0 +1,61 @@
+<table class="table table-hover">
+  <thead>
+    <th>Name</th>
+    <th>Emp-Code</th>
+    <th>Position</th>
+    <th>Mobile</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngIf="showSpinner">
+      <td colspan="6">
+        <div class="text-center">
+          <!-- sinner -->
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+          <!-- spinner end -->
+        </div>
+      </td>
+    </tr>
+
+    <tr *ngFor="let emp of list;let i = index" id="trdata{{i+1}}">
+      <td>
+        <span id="spanName{{i+1}}">{{emp.fullName|titlecase}}</span>
+        <input id="txtName{{i+1}}" type="text" value="{{emp.fullName}}" name="fullName" #name required><br/>
+        <p id="errName{{i+1}}" class="error"><i class="fa fa-exclamation-triangle"></i>&nbsp;Name Is Empty</p>
+
+
+      </td>
+      <td>
+        <span id="spanCode{{i+1}}">{{emp.empCode}}</span>
+        <input id="txtCode{{i+1}}" type="text" value="{{emp.empCode}}" required>
+        <p id="errCode{{i+1}}" class="error"><i class="fa fa-exclamation-triangle"></i>&nbsp;Emp Code Is Empty</p>
+      </td>
+      <td>
+        <span id="spanPosition{{i+1}}">{{emp.position|titlecase}}</span>
+        <input id="txtPosition{{i+1}}" type="text" value="{{emp.position}}" required>
+        <p id="errPosition{{i+1}}" class="error"><i class="fa fa-exclamation-triangle"></i>&nbsp;Postion Is Empty</p>
+      </td>
+      <td>
+        <span id="spanMobile{{i+1}}">{{emp.mobile}}</span>
+        <input id="txtMobile{{i+1}}" type="text" value="{{emp.mobile}}" required>
+        <p id="errMobile{{i+1}}" class="error"><i class="fa fa-exclamation-triangle"></i>&nbsp;Phone Number Is Empty</p>
+      </td>
+      <td id="action">
+        <!-- update -->
+        <button id="edit" class="btn text-danger" (click)="onEdit('trdata'+(i+1),(i+1))"><i
+            class="fa fa-pencil-square-o"></i></button>
+
+        <!-- ok -->
+        <a id="done" class="btn text-danger" (click)="onDone(emp.id,(i+1))"><i class="fa fa-check"></i></a>
+        <!-- close -->
+        <a id="close" class="btn text-danger" (click)="onClose('trdata'+(i+1))"><i class="fa fa-times"></i></a>
+      </td>
+      <td>
+        <a class="btn text-danger" (click)="onDelete(emp.id)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

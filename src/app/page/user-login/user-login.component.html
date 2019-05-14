@@ -1,0 +1,58 @@
+<div class="container pt-3">
+    <div class="row justify-content-sm-center">
+        <div class="col-sm-10 col-md-6">
+            <div class="card border-info">
+                <div class="card-header titlediv text-center">
+                    <h5>Sign In</h5>
+                    <p>it's free and only take minute</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img class="loginLogo" src="../../../assets/img/logo.png">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="input-container">
+                                    <i class="fa fa-envelope-o icon"></i>
+                                    <input type="text" class="input-field" placeholder="Email" #userEmail required
+                                        autofocus>
+                                </div>
+                                <div class="input-container">
+                                    <i class="fa fa-lock icon" id="passLock"></i>
+                                    <i class="fa fa-unlock icon" id="passUnlock"></i>
+                                    <input type="password" class="input-field" placeholder="Password" #userPassword
+                                        required id="txtPass">
+                                    <i class="fa fa-eye icon" (click)="showPassword()" id="passEye"></i>
+                                    <i class="fa  fa-eye-slash icon" (click)="hidePassword()" id="passEyeClose"></i>
+
+                                </div>
+                                <!-- sign in -->
+                                <button id="btn" class="btn btn-block mb-1"
+                                    (click)="authService.login(userEmail.value, userPassword.value)">Login</button>
+
+                                <!-- google login    -->
+                                <!-- <div class="input-container"> -->
+                                    <!-- <i class="fa fa-google"></i> -->
+                                    <button id="btn" class="btn btn-block btn-social btn-google"
+                                        (click)="authService.googleSignIn()">
+                                        <span class="fa fa-google"></span>
+                                        Sign in with Google
+                                    </button>
+
+                                <!-- </div> -->
+
+                                <!-- sign up -->
+                                <div class="text-center signUpDiv">
+                                    <p>Need an Account ? <span><a (click)="createNewUser()" style="color:#0099ff;">Sign
+                                                up</a></span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+.mainHeader{
+    background-color: #0099ff;
+    height: 100%;
+    color: white;
+    padding: 10px;
+}
+
+.mainHeader h5,.userEmail p ,.userLoginTime p{
+    padding-top: 9px;
+}
+
+.btnLogOut .fa{
+    padding-top: 16px;
+}
+.userLoginTime .fa{
+    padding-top: 9px;
+}
+.userEmail{
+    overflow: hidden;
+}
+.userEmail .emailContent{
+    padding-left: 0px;
+}
+
+.headerOfProfile{
+    border-bottom: 1px solid rgb(0, 153, 255);
+    height: 50px !important;
+}
+
+.btnSignOut{
+    border: none;
+    background: white;
+}
+
+
+.userProfile p:hover,.btnSignOut:hover{
+    color: #0099ff;
+}
+
+.userImg img{
+    width:58px;
+    height: auto;
+    border-radius: 50%;
+}
+
+
+.mainLogo{
+    width: 160px;
+    height: 50px;
+}
+
+.userProfile{
+    position: absolute;
+    z-index:1;
+} 
+
+.profileTitle{
+    color:#0099ff;
+}

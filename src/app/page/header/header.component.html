@@ -1,0 +1,98 @@
+<div class="row mainHeader">
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="mainLogo" src="../../../assets//img/Logo-BlueSoft.png">
+      </div>
+      <div class="col-md-10">
+        <div class="mainTitle">
+          <h5>Blue Soft Technologies</h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-2">
+    <div class="row userProfile">
+      <!-- <div class="col-md-4  userLoginTime">
+        <p *ngIf="authService.isLoggedIn" class="float-right">
+          <i class="fa fa-calendar-o"></i>
+          <span> {{userData.lastLoginAt| date}}</span>
+        </p>
+      </div>
+      <div class="col-md-5 userEmail">
+        <div class="row" *ngIf="authService.isLoggedIn">
+          <div class="col-md-2"> <i class="fa fa-envelope-o"></i></div>
+          <div class="col-md-10 emailContent"> {{userData.email}}</div>
+        </div>
+      </div>
+      <div class="col-md-1 btnLogOut">
+        <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">
+          <i class="fa fa-power-off"></i>
+        </a>
+      </div> -->
+      <div *ngIf="authService.isLoggedIn">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header class="headerOfProfile">
+              <mat-panel-title class="profileTitle">
+                <i class="fa fa-user-o"></i>
+                <span>&nbsp;User Profile</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>
+            </p>
+            <p class="userImg text-center" id="userImg">
+              <img *ngIf="isSetUserImg" src="{{userData.photoURL}}" />
+              <span *ngIf="isSetUserImg"> &nbsp;<b>{{userData.displayName| titlecase}}</b></span>
+              <i *ngIf="!isSetUserImg"  class="fa fa-user-circle fa-4x"></i>
+            </p>
+            <p>
+              <i class="fa fa-calendar"></i>
+              <span>&nbsp;&nbsp;&nbsp;{{userData.lastLoginAt| date}}</span>
+            </p>
+            <p>
+              <i class="fa fa-envelope-o"></i>
+              <span class="userEmail">&nbsp;&nbsp;&nbsp;{{userData.email}}</span>
+            </p>
+            <p>
+              <i class="fa fa-calendar-times-o"></i>
+              <span class="userEmail">&nbsp;&nbsp;&nbsp;{{userData.stsTokenManager.expirationTime|date}}</span>
+            </p>
+            <p>
+              <span *ngIf="userData.emailVerified">
+                <i class="fa fa-envelope-open-o"></i>
+              </span>
+              <span *ngIf="!userData.emailVerified">
+                <i class="fa fa-envelope-o"></i>
+              </span>
+              <span class="userEmail">&nbsp;&nbsp;&nbsp;Verified Email Status</span>
+            </p>
+            <p *ngIf="userData.emailVerified">
+              <i class="fa fa-key"></i>
+              <span>&nbsp;&nbsp;<button class="btnSignOut" (click)="resetPassword(userData.email)">
+                  Reset Password</button></span>
+            </p>
+            <p *ngIf="!userData.emailVerified">
+                <i class="fa fa-envelope-o"></i>
+                <i class="fa fa-question"></i>
+                <span><button class="btnSignOut" (click)="authService.SendVerificationMail()">
+                    Email address verification</button>
+                  </span>
+              </p>
+
+            <p>
+              <i class="fa fa-power-off"></i>
+              <span>&nbsp;&nbsp;&nbsp;<button class="btnSignOut" (click)="authService.logout()">
+                  Sign Out</button></span>
+            </p>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

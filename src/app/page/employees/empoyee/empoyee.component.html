@@ -1,0 +1,72 @@
+<h1 class="display-4 text-center">EMP. Register</h1>
+<form [formGroup]="registerForm">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <!-- fullName -->
+        <div class="input-container">
+          <i class="fa fa-user icon"></i>
+          <input type="text" formControlName="fullName" placeholder="Enter Name" class="input-field"
+            [ngClass]="{ 'is-invalid': submitted &&   f.fullName.errors }" />
+        </div>
+        <div *ngIf="f.fullName.errors" class="invalid-feedback">
+          <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+          <div *ngIf="f.fullName.errors.pattern">Only Charecter are allowed.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <!-- position -->
+        <div class="input-container">
+          <i class="fa fa-map-marker icon"></i>
+          <input type="text" formControlName="position" placeholder="Enter Position" class="input-field"
+            [ngClass]="{ 'is-invalid': submitted &&   f.position.errors }" />
+        </div>
+        <div *ngIf="f.position.errors" class="invalid-feedback">
+          <div *ngIf="f.position.errors.required">Position is required</div>
+          <div *ngIf="f.position.errors.pattern">Only Charecter are allowed.</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <!-- empCode -->
+        <div class="input-container">
+          <i class="fa fa-id-card-o icon"></i>
+          <input type="text" formControlName="empCode" placeholder="Enter EmpCode" class="input-field"
+            [ngClass]="{ 'is-invalid': submitted &&   f.empCode.errors }" />
+        </div>
+        <div *ngIf="f.empCode.errors" class="invalid-feedback">
+          <div *ngIf="f.empCode.errors.required">Emp-Code is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <!--mobile -->
+        <div class="input-container">
+          <i class="fa fa-phone icon"></i>
+          <input type="text" formControlName="mobile" placeholder="Enter Phone Number" class="input-field"
+            [ngClass]="{ 'is-invalid': submitted &&   f.mobile.errors }" />
+        </div>
+        <div *ngIf="f.mobile.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile.errors.required">Phone Number is required</div>
+          <div *ngIf="f.mobile.errors.pattern">Only Numbers are allowed.</div>
+          <div *ngIf="f.mobile.errors.minlength">Phone Number requied only 10 characters.</div>
+          <div *ngIf="registerForm.get('mobile').hasError('maxlength')">
+            <span style="color: red;">Phone Number requied only 10 characters.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button (click)="onSubmit()" class="btn btn-block" id="btn">Submit</button>
+    </div>
+    <div class="col-md-3">
+      <button (click)="resetForm()" class="btn btn-block" id="btn">Reset</button>
+    </div>
+
+  </div>
+
+</form>
